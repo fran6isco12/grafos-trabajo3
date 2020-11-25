@@ -16,11 +16,6 @@ namespace Automata_pila
         SortedSet<int> estadosFinales;
         SortedSet<int>[,] tablaTransiciones;
 
-        internal void setEstadoInicial()
-        {
-            throw new NotImplementedException();
-        }
-
         public AP()
         {
             alfabeto = new SortedSet<string>();

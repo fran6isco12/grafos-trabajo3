@@ -51,7 +51,6 @@
     <Compile Include="concatenacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="unir.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -55,27 +55,34 @@ namespace Automata_pila
             string nt = Console.ReadLine();
             int t = Convert.ToInt32(nt);
 
+            int[] origen = new int[t];
+            string[] lee = new string[t];
+            int[] destino = new int[t];
+
+
             for (int i=0;i<t;i++)
             {
                 Console.Write("la transicion empieza en: ");
                 string ei = Console.ReadLine();
                 int nei = Convert.ToInt32(ei);
+                origen[i] =nei;
                 Console.WriteLine();
 
                 Console.Write("la transicion se realiza con: ");
                 string transi = Console.ReadLine();
+                lee[i] = transi;
                 Console.WriteLine();
 
                 Console.Write("la transicion termina en: ");
                 string ef = Console.ReadLine();
                 int nef = Convert.ToInt32(ef);
+                destino[i] = nef;
                 Console.WriteLine();
 
                 auto1.addTransicion(nei, transi, nef);
             }
 
             Console.Clear();
-
 
             for (int i=0;i<auto1.getnumEstados();i++ )
             {
@@ -91,6 +98,31 @@ namespace Automata_pila
                 Console.WriteLine();
             }
             Console.ReadLine();
+
+            Console.WriteLine("La concatenacion es:");
+
+            AP union = new concatenacion().concatenar(auto1,auto1,origen,lee,destino,origen,lee,destino);
+
+            foreach( string alf in union.getAlfabeto())
+            {
+                Console.Write(alf + "  ");
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < union.getnumEstados(); i++)
+            {
+                for (int j = 0; j < union.gettotalTransiciones(); j++)
+                {
+                    Console.Write("[");
+                    foreach (int tra in union.getTablaTransiciones()[i, j])
+                    {
+                        Console.Write(tra);
+                    }
+                    Console.Write("]");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
