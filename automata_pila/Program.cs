@@ -101,21 +101,21 @@ namespace Automata_pila
 
             Console.WriteLine("La concatenacion es:");
 
-            AP union = new concatenacion().concatenar(auto1,auto1,origen,lee,destino,origen,lee,destino);
+            AP concatenacion = new concatenacion().concatenar(auto1,auto1,origen,lee,destino,origen,lee,destino);
 
-            foreach( string alf in union.getAlfabeto())
+            foreach( string alf in concatenacion.getAlfabeto())
             {
                 Console.Write(alf + "  ");
             }
 
             Console.WriteLine();
 
-            for (int i = 0; i < union.getnumEstados(); i++)
+            for (int i = 0; i < concatenacion.getnumEstados(); i++)
             {
-                for (int j = 0; j < union.gettotalTransiciones(); j++)
+                for (int j = 0; j < concatenacion.gettotalTransiciones(); j++)
                 {
                     Console.Write("[");
-                    foreach (int tra in union.getTablaTransiciones()[i, j])
+                    foreach (int tra in concatenacion.getTablaTransiciones()[i, j])
                     {
                         Console.Write(tra);
                     }
@@ -123,6 +123,8 @@ namespace Automata_pila
                 }
                 Console.WriteLine();
             }
+
+            Console.ReadLine();
         }
     }
 }
