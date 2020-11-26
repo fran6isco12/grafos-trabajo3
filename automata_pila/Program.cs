@@ -13,7 +13,7 @@ namespace Automata_pila
             AP auto1 = new AP();
 
 
-            Console.Write("ingrese el num total de estados: ");
+            Console.Write("ingrese el num total de estados (AP 1): ");
             string v = Console.ReadLine();
             int n = Convert.ToInt32(v);
             auto1.setnumEstados(n);
@@ -21,14 +21,14 @@ namespace Automata_pila
 
             auto1.setEstadoInicial(0);
 
-            Console.Write("ingrese el num del estados finales: ");
+            Console.Write("ingrese el num del estados finales (AP 1): ");
             string f = Console.ReadLine();
             int nf = Convert.ToInt32(f);
             Console.WriteLine();
 
             for(int i=0;i<nf;i++)
             {
-                Console.Write("ingrese el numero del estado final: ");
+                Console.Write("ingrese el numero del estado final (AP 1): ");
                 string ef = Console.ReadLine();
                 int nef = Convert.ToInt32(ef);
                 auto1.addEstadoFinal(nef);
@@ -37,7 +37,7 @@ namespace Automata_pila
 
             Console.Clear();
 
-            Console.Write("ingrese el num total del alfabeto: ");
+            Console.Write("ingrese el num total del alfabeto (AP 1): ");
             string tr = Console.ReadLine();
             int ntr = Convert.ToInt32(tr);
             auto1.settotalTransiciones(ntr);
@@ -45,13 +45,13 @@ namespace Automata_pila
 
             for (int i = 0; i < ntr; i++)
             {
-                Console.WriteLine("ingrese la transicion: ");
+                Console.WriteLine("ingrese la transicion (AP 1): ");
                 string trs = Console.ReadLine();
                 auto1.addLetraAlfabeto(trs);
                 Console.WriteLine();
             }
 
-            Console.Write("Cuantas transiciones piensa realizar: ");
+            Console.Write("Cuantas transiciones piensa realizar (AP 1): ");
             string nt = Console.ReadLine();
             int t = Convert.ToInt32(nt);
 
@@ -62,18 +62,18 @@ namespace Automata_pila
 
             for (int i=0;i<t;i++)
             {
-                Console.Write("la transicion empieza en: ");
+                Console.Write("la transicion empieza en (AP 1): ");
                 string ei = Console.ReadLine();
                 int nei = Convert.ToInt32(ei);
                 origen[i] =nei;
                 Console.WriteLine();
 
-                Console.Write("la transicion se realiza con: ");
+                Console.Write("la transicion se realiza con (AP 1): ");
                 string transi = Console.ReadLine();
                 lee[i] = transi;
                 Console.WriteLine();
 
-                Console.Write("la transicion termina en: ");
+                Console.Write("la transicion termina en (AP 1): ");
                 string ef = Console.ReadLine();
                 int nef = Convert.ToInt32(ef);
                 destino[i] = nef;
@@ -84,6 +84,81 @@ namespace Automata_pila
 
             Console.Clear();
 
+            AP auto2 = new AP();
+
+
+            Console.Write("ingrese el num total de estados (AP 2): ");
+            string v2 = Console.ReadLine();
+            int n2 = Convert.ToInt32(v2);
+            auto2.setnumEstados(n2);
+            Console.WriteLine();
+
+            auto2.setEstadoInicial(0);
+
+            Console.Write("ingrese el num del estados finales (AP 2): ");
+            string f2 = Console.ReadLine();
+            int nf2 = Convert.ToInt32(f2);
+            Console.WriteLine();
+
+            for (int i = 0; i < nf2; i++)
+            {
+                Console.Write("ingrese el numero del estado final (AP 2): ");
+                string ef2 = Console.ReadLine();
+                int nef2 = Convert.ToInt32(ef2);
+                auto2.addEstadoFinal(nef2);
+                Console.WriteLine();
+            }
+
+            Console.Clear();
+
+            Console.Write("ingrese el num total del alfabeto (AP 2): ");
+            string tr2 = Console.ReadLine();
+            int ntr2 = Convert.ToInt32(tr2);
+            auto2.settotalTransiciones(ntr2);
+            Console.WriteLine();
+
+            for (int i = 0; i < ntr2; i++)
+            {
+                Console.WriteLine("ingrese la transicion (AP 2): ");
+                string trs2 = Console.ReadLine();
+                auto2.addLetraAlfabeto(trs2);
+                Console.WriteLine();
+            }
+
+            Console.Write("Cuantas transiciones piensa realizar (AP 2): ");
+            string nt2 = Console.ReadLine();
+            int t2 = Convert.ToInt32(nt2);
+
+            int[] origen2 = new int[t2];
+            string[] lee2 = new string[t2];
+            int[] destino2 = new int[t2];
+
+
+            for (int i = 0; i < t2; i++)
+            {
+                Console.Write("la transicion empieza en (AP 2): ");
+                string ei2 = Console.ReadLine();
+                int nei2 = Convert.ToInt32(ei2);
+                origen2[i] = nei2;
+                Console.WriteLine();
+
+                Console.Write("la transicion se realiza con (AP 2): ");
+                string transi2 = Console.ReadLine();
+                lee2[i] = transi2;
+                Console.WriteLine();
+
+                Console.Write("la transicion termina en (AP 2): ");
+                string ef2 = Console.ReadLine();
+                int nef2 = Convert.ToInt32(ef2);
+                destino2[i] = nef2;
+                Console.WriteLine();
+
+                auto1.addTransicion(nei2, transi2, nef2);
+            }
+
+            Console.Clear();
+
+            Console.WriteLine("AP 1");
             for (int i=0;i<auto1.getnumEstados();i++ )
             {
                 for(int j=0;j<auto1.gettotalTransiciones();j++)
@@ -99,9 +174,25 @@ namespace Automata_pila
             }
             Console.ReadLine();
 
+            Console.WriteLine("AP 2");
+            for (int i = 0; i < auto1.getnumEstados(); i++)
+            {
+                for (int j = 0; j < auto1.gettotalTransiciones(); j++)
+                {
+                    Console.Write("[");
+                    foreach (int tra in auto1.getTablaTransiciones()[i, j])
+                    {
+                        Console.Write(tra);
+                    }
+                    Console.Write("]");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+
             Console.WriteLine("La concatenacion es:");
 
-            AP concatenacion = new concatenacion().concatenar(auto1,auto1,origen,lee,destino,origen,lee,destino);
+            AP concatenacion = new concatenacion().concatenar(auto1,auto2,origen,lee,destino,origen2,lee2,destino2);
 
             foreach( string alf in concatenacion.getAlfabeto())
             {
@@ -128,7 +219,7 @@ namespace Automata_pila
 
             Console.WriteLine("La union es:");
 
-            AP union = new union().unir(auto1, auto1, origen, lee, destino, origen, lee, destino);
+            AP union = new union().unir(auto1, auto2, origen, lee, destino, origen2, lee2, destino2);
 
             foreach (string alf in union.getAlfabeto())
             {
