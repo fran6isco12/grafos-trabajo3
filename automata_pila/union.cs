@@ -27,7 +27,27 @@ namespace Automata_pila
 
             apUnion.setnumEstados(ap1.getnumEstados() + ap2.getnumEstados() + 1);
             apUnion.setEstadoInicial(0);
-            apUnion.settotalTransiciones(ap1.gettotalTransiciones() + ap2.gettotalTransiciones());
+
+            SortedSet<string> alfUnion = new SortedSet<string>();
+
+            foreach (string letra1 in ap1.getAlfabeto())
+            {
+                alfUnion.Add(letra1);
+            }
+
+            foreach (string letra2 in ap2.getAlfabeto())
+            {
+                alfUnion.Add(letra2);
+            }
+
+            int cont = 0;
+
+            foreach (string letra in alfUnion)
+            {
+                cont++;
+            }
+
+            apUnion.settotalTransiciones(1 + cont);
 
             foreach (string alf1 in ap1.getAlfabeto())
             {

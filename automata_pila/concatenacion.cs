@@ -28,7 +28,27 @@ namespace Automata_pila
 
             apConca.setnumEstados(ap1.getnumEstados() + ap2.getnumEstados() + 2);
             apConca.setEstadoInicial(0);
-            apConca.settotalTransiciones(2 + ap1.gettotalTransiciones() + ap2.gettotalTransiciones());
+
+            SortedSet<string> alfConca = new SortedSet<string>();
+            
+            foreach(string letra1 in ap1.getAlfabeto())
+            {
+                alfConca.Add(letra1);
+            }
+
+            foreach (string letra2 in ap2.getAlfabeto())
+            {
+                alfConca.Add(letra2);
+            }
+
+            int cont=0;
+
+            foreach (string letra in alfConca)
+            {
+                cont++;
+            }
+
+            apConca.settotalTransiciones(3 + cont);
 
             apConca.addLetraAlfabeto("@/@/Ind");
             apConca.addLetraAlfabeto("@/Ind/@");
