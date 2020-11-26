@@ -125,6 +125,33 @@ namespace Automata_pila
             }
 
             Console.ReadLine();
+
+            Console.WriteLine("La union es:");
+
+            AP union = new union().unir(auto1, auto1, origen, lee, destino, origen, lee, destino);
+
+            foreach (string alf in union.getAlfabeto())
+            {
+                Console.Write(alf + "  ");
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < union.getnumEstados(); i++)
+            {
+                for (int j = 0; j < union.gettotalTransiciones(); j++)
+                {
+                    Console.Write("[");
+                    foreach (int tra in union.getTablaTransiciones()[i, j])
+                    {
+                        Console.Write(tra);
+                    }
+                    Console.Write("]");
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadLine();
         }
     }
 }
