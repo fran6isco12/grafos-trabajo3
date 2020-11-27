@@ -7,7 +7,7 @@ namespace t3
 {
     public class rpafd
     {
-        public static List<AFD> _listaafd;
+        public static List<AFD> _listaafd= new List<AFD>();
 
         public AFD obtenerafd(int id)
         {
@@ -16,7 +16,10 @@ namespace t3
         }
         public void Agregar(AFD nuevoafd)
         {
-            _listaafd.Add(nuevoafd);
+            if (nuevoafd != null)
+            {
+                _listaafd.Add(nuevoafd);
+            }
         }
     }
 }

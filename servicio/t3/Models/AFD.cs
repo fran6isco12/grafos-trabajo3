@@ -12,16 +12,34 @@ namespace t3
         public int NEstados { get; set; }
         public int EInicial { get; set; }
         public List<int> EFinales { get; set; }
-        public string[,] Trancision { get; set; }
+        public List<string> tab { get; set; }
 
-        public AFD(int id, int estados, int inicial, List<int> finales, string[,] tabla)
+        public AFD() { }
+        public AFD(int id, int estados, int inicial, List<int> finales, List<string> tabla)
         {
             Id = id;
             NEstados = estados;
             EInicial = inicial;
             EFinales = finales;
-            Trancision= tabla;
+            tab= tabla;
             
+        }
+
+        public string[,] tabtotran()
+        {   int con = 0;
+            string[,] Trancision = new string[NEstados, NEstados];
+            for(int i = 0; i < NEstados; i++)
+            {
+                for(int j = 0; j < NEstados; j++)
+                {
+                    if (con < tab.Count())
+                    {
+                        Trancision[i, j] = tab[con];
+                        con += 1;
+                    }
+                }
+            }
+            return Trancision;
         }
 
         public int Getid()
@@ -47,7 +65,7 @@ namespace t3
 
         public string[,] GetTabTrans()
         {
-            return Trancision;
+            return tabtotran();
         }
 
         public string ERegular(AFD automata)

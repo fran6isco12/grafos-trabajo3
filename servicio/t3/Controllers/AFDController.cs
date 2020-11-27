@@ -11,14 +11,6 @@ namespace t3.Controllers
     [ApiController]
     public class AFDController : ControllerBase
     {
-        public int numestados = 4;
-        public string nombre = "pueba";
-        public int inicial = 0;
-        public List<int> finales = new List<int> { 2, 3 };
-        public string[,] trans = new string[4, 4];
-        public AFD automata;
-        public string resp;
-
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -31,7 +23,7 @@ namespace t3.Controllers
                 var nf = NotFound("El afd " + id.ToString() + " no existe.");
                 return nf;
             }
-
+            automata.tabtotran();
             return Ok(automata.ERegular(automata));
             //Console.WriteLine(resp);
             //return Ok(resp);
@@ -41,7 +33,7 @@ namespace t3.Controllers
         {
             rpafd repafd = new rpafd();
             repafd.Agregar(nuevoafd);
-            return CreatedAtAction(nameof(Agregarafd), nuevoafd.Id);
+            return CreatedAtAction(nameof(Agregarafd),nuevoafd.Getid());
         }
     }
 }
