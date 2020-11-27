@@ -16,13 +16,15 @@ namespace t3.Controllers
         {
             rpap rpap = new rpap();
 
-            var automata = rpap.obtenerap(id);
+            var ap = rpap.obtenerap(id);
 
-            if (automata == null)
+            if (ap == null)
             {
                 var nf = NotFound("El AP " + id.ToString() + " no existe.");
                 return nf;
             }
+            ap.getEstadoInicial();
+            return Ok(ap.getEstadoInicial());
         }
         [HttpPost("agregar")]
         public IActionResult Agregarafd(AP nuevoap)

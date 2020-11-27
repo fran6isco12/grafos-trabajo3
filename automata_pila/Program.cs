@@ -153,7 +153,7 @@ namespace Automata_pila
                 destino2[i] = nef2;
                 Console.WriteLine();
 
-                auto1.addTransicion(nei2, transi2, nef2);
+                auto2.addTransicion(nei2, transi2, nef2);
             }
 
             Console.Clear();
@@ -175,12 +175,12 @@ namespace Automata_pila
             Console.ReadLine();
 
             Console.WriteLine("AP 2");
-            for (int i = 0; i < auto1.getnumEstados(); i++)
+            for (int i = 0; i < auto2.getnumEstados(); i++)
             {
-                for (int j = 0; j < auto1.gettotalTransiciones(); j++)
+                for (int j = 0; j < auto2.gettotalTransiciones(); j++)
                 {
                     Console.Write("[");
-                    foreach (int tra in auto1.getTablaTransiciones()[i, j])
+                    foreach (int tra in auto2.getTablaTransiciones()[i, j])
                     {
                         Console.Write(tra);
                     }

@@ -7,18 +7,18 @@ namespace t3
 {
     public class rpap
     {
-        public static List<AP> _listap = new List<AP>();
+        public static List<AP> _listaap = new List<AP>();
 
         public AP obtenerap(int id)
         {
-            var automata = _listap.Where(afd => afd.id == id);
-            return automata.FirstOrDefault();
+            var automataPila = _listaap.Where(ap => ap.Id == id);
+            return automataPila.FirstOrDefault();
         }
         public void Agregar(AP nuevoap)
         {
             if (nuevoap != null)
             {
-                _listap.Add(nuevoap);
+                _listaap.Add(nuevoap);
             }
         }
     }

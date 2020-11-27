@@ -8,7 +8,7 @@ namespace t3
 {
     public class AP
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public int numEstados { get; set; }
         public int estadoInicial { get; set; }
         public int totalTransiciones { get; set; }
@@ -16,11 +16,7 @@ namespace t3
         public SortedSet<int> estadosFinales { get; set; }
         public SortedSet<int>[,] tablaTransiciones { get; set; }
 
-        public AP()
-        {
-            alfabeto = new SortedSet<string>();
-            estadosFinales = new SortedSet<int>();
-        }
+        public AP() { }
 
         public AP(int nEstados, int eInicial, int tTransiciones, SortedSet<string> alfab, SortedSet<int>
             estadosFinals, SortedSet<int>[,] tblaTransiciones)
@@ -35,7 +31,7 @@ namespace t3
 
         public int getId()
         {
-            return id;
+            return Id;
 
         }
         public int getnumEstados()
