@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
-namespace t3.Controllers
+namespace t3.Models
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AP : ControllerBase
+    public class AP
     {
-        int numEstados;
-        int estadoInicial;
-        int totalTransiciones;
-        SortedSet<string> alfabeto;
-        SortedSet<int> estadosFinales;
-        SortedSet<int>[,] tablaTransiciones;
+        public int numEstados { get; set; }
+        public int estadoInicial { get; set; }
+        public int totalTransiciones { get; set; }
+        public SortedSet<string> alfabeto { get; set; }
+        public SortedSet<int> estadosFinales { get; set; }
+        public SortedSet<int>[,] tablaTransiciones { get; set; }
 
         public AP()
         {
@@ -132,6 +129,14 @@ namespace t3.Controllers
             }
             tablaTransiciones[q0, cont].Add(q1);
         }
-    }
 
+        public static void Log(string logMessage, TextWriter w)
+        {
+            w.Write("\r\nLog Entry : ");
+            w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
+            w.WriteLine("  :");
+            w.WriteLine($"  :{logMessage}");
+            w.WriteLine("-------------------------------");
+        }
+    }
 }
