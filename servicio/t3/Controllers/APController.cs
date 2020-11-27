@@ -7,30 +7,29 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace t3.Controllers
 {
-    public class APController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class APController : ControllerBase
     {
-        [Route("api/[controller]")]
-        [ApiController]
-        public class APController : ControllerBase
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            public int numEstados = 1;
-            public int inicial = 0;
-            public int totalTransiciones = 1;
-            public SortedSet<string> alfabeto = new SortedSet<string> { "a" };
-            public SortedSet<int> estadosFinales = new SortedSet<int> { 0 };
-            public SortedSet<int>[,] tablaTransiciones = new SortedSet<int>[1,1];
-            public AP ap1;
+            rpap rpap = new rpap();
 
-            [HttpGet("{id}")]
-            public IActionResult Get(int id)
+            var automata = rpap.obtenerap(id);
+
+            if (automata == null)
             {
-
+                var nf = NotFound("El AP " + id.ToString() + " no existe.");
+                return nf;
             }
-            [HttpPost("agregar")]
-            public IActionResult Agregarafd(AFD nuevoafd)
-            {
-
-            }
+        }
+        [HttpPost("agregar")]
+        public IActionResult Agregarafd(AP nuevoap)
+        {
+            rpap repap = new rpap();
+            repap.Agregar(nuevoap);
+            return CreatedAtAction(nameof(Agregarafd), nuevoap.getId());
         }
     }
 }

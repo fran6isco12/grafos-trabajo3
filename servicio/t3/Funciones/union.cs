@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace t3.Funciones
+namespace t3
 {
     public class union
     {
