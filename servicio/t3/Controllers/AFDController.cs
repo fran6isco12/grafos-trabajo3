@@ -19,29 +19,29 @@ namespace t3.Controllers
         public AFD automata;
         public string resp;
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            trans[0, 0] = "0,1";
-            trans[0, 1] = "1";
-            trans[1, 2] = "0,1";
-            trans[2, 3] = "0,1";
-            Console.WriteLine("2"+ "/n");
-            for (int i = 0; i < 4; i++)
+            rpafd rpafd = new rpafd();
+
+            var automata = rpafd.obtenerafd(id);
+
+            if (automata == null)
             {
-                for(int j = 0; j < 4; j++)
-                {
-                    if (trans[i, j] == null)
-                    {
-                        trans[i, j] ="";
-                    }
-                }
+                var nf = NotFound("El afd " + id.ToString() + " no existe.");
+                return nf;
             }
-            Console.WriteLine(trans[0, 1]+"/n");
-            automata = new AFD(nombre, numestados, inicial, finales, trans);
-            resp = automata.ERegular(automata)+"esta es la er"+ trans[2,2]+"as"+inicial;
-            Console.WriteLine(resp+"1");
-            return Ok(resp);
+
+            return Ok(automata.ERegular(automata));
+            //Console.WriteLine(resp);
+            //return Ok(resp);
+        }
+        [HttpPost("agregar")]
+        public IActionResult Agregarafd(AFD nuevoafd)
+        {
+            rpafd repafd = new rpafd();
+            repafd.Agregar(nuevoafd);
+            return CreatedAtAction(nameof(Agregarafd), nuevoafd.Id);
         }
     }
 }

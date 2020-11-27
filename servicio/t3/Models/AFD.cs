@@ -8,15 +8,15 @@ namespace t3
 {
     public class AFD
     {   
-        public string Nombre;
-        public int NEstados;
-        public int EInicial;
-        public List<int> EFinales;
-        public string[,] Trancision;
+        public int Id { get; set; }
+        public int NEstados { get; set; }
+        public int EInicial { get; set; }
+        public List<int> EFinales { get; set; }
+        public string[,] Trancision { get; set; }
 
-        public AFD(string name, int estados, int inicial, List<int> finales, string[,] tabla)
+        public AFD(int id, int estados, int inicial, List<int> finales, string[,] tabla)
         {
-            Nombre = name;
+            Id = id;
             NEstados = estados;
             EInicial = inicial;
             EFinales = finales;
@@ -24,9 +24,9 @@ namespace t3
             
         }
 
-        public string GetNombre()
+        public int Getid()
         {
-            return Nombre;
+            return Id;
 
         }
 
@@ -53,7 +53,6 @@ namespace t3
         public string ERegular(AFD automata)
         {
             string expresion="";
-            int con=0;
             Boolean iniciales=false;
 
             Boolean finales=false;
@@ -167,14 +166,12 @@ namespace t3
                     trancisiones[0, 1] = trancisiones[0, 1].Substring(i, 0);
                 }
             }*/
-            expresion = expresion+trancisiones[0, 1]+" nume:"+numestados;
+            expresion = trancisiones[0, 1];
             return expresion;
         }
         public string[,] Eliminarestado(int origen, int eliminar, int destino, string[,] trancisiones, int numestados)
         {
             string[,] nuevatrancision= new string[numestados - 1, numestados - 1];
-
-            int con = 0;
 
             nuevatrancision[0, 1] = trancisiones[0, 1];
 
