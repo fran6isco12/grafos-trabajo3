@@ -80,7 +80,6 @@ namespace t3
             List<int> final = automata.GetEsFinales();
 
             int numestados = automata.GetNumEstado();
-            expresion = expresion + numestados + "/";
 
             string[,] trancisiones= new string[numestados,numestados];
             if (automata.GetTabTrans()[automata.GetInicial(), automata.GetInicial()] != "")
@@ -99,14 +98,13 @@ namespace t3
             }
             if (iniciales != false)
             {
-                expresion = expresion + automata.GetTabTrans()[0, 0]+".";
+
                 numestados += 1;
-                expresion = expresion + numestados + "//";
                 if (finales != false)
                 {
                     
                     numestados += 1;
-                    expresion = expresion + numestados + "///";
+
                     trancisiones = new string[numestados, numestados];
                     for (int i = 0; i < final.Count(); i++)
                     {
@@ -125,7 +123,6 @@ namespace t3
                         trancisiones[i + 1, j + 1] = automata.GetTabTrans()[i, j];
                     }
                 }
-                expresion = expresion + trancisiones[1, 1]+"///////";
             }
             else
             {
@@ -133,7 +130,6 @@ namespace t3
                 {
                     
                     numestados += 1;
-                    expresion = expresion+ numestados + "////";
                     trancisiones = new string[numestados, numestados];
                     for (int i = 0; i < final.Count(); i++)
                     {
@@ -152,40 +148,54 @@ namespace t3
                     trancisiones = automata.GetTabTrans();
                 }
             }
+            for(int i = numestados; i > 2; i--)
+            {
+                trancisiones = Eliminarestado(0, 1, 2, trancisiones, i);                    
+            }
 
-
-            /*while (numestados>2 )
-             {
-                 trancisiones = Eliminarestado(0, 1, 2, trancisiones, numestados);
-                 numestados -= 1;                
-                 using (StreamWriter w = File.AppendText("log.txt"))
-                 {
-                     Log(con+"indice", w);
-                 }
-                 con += 1;
-             }*/
-            expresion = "";
-            //expresion = expresion + "/1/" +  trancisiones[0, numestados-1] + "*/";
-            trancisiones = Eliminarestado(0, 1, 2, trancisiones, numestados);
-            numestados -= 1;
-            //expresion = expresion + "/2/" +  trancisiones[0, 1] + "*/";
-            trancisiones = Eliminarestado(0, 1, 2, trancisiones, numestados);
-            numestados -= 1;
-            //expresion = expresion + "/3/" + trancisiones[0, 1] + "*/";
-            trancisiones = Eliminarestado(0, 1, 2, trancisiones, numestados);
-            numestados -= 1;
-            expresion = expresion + "/4/" + trancisiones[0, 1] + "/4/";
-            trancisiones = Eliminarestado(0, 1, 2, trancisiones, numestados);
-            //expresion = expresion + "/5/" + trancisiones[0, numestados - 2]+"/5/";
-            /*for (int i=0; i < trancisiones[0, 1].Count(); i++)
-                {
-                if(trancisiones[0, 1].Substring(i, 0) !=";")
-                {
-                    trancisiones[0, 1] = trancisiones[0, 1].Substring(i, 0);
-                }
-            }*/
+            string extr="";
             expresion = trancisiones[0, 1];
-            return expresion;
+            if (expresion.Contains(";"))
+            {   
+                for(int i = 0; i < expresion.Count();i++)
+                {
+                    if (expresion.Substring(i,1)==";")
+                    {
+                        extr = extr + "+";
+                    }
+                    else
+                    {
+                        if (expresion.Substring(i, 1) == "E")
+                        {
+                            Console.WriteLine("elimina E");
+                        }
+                        else {
+                            extr = extr + expresion.Substring(i, 1);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                extr = expresion;
+            }
+            expresion = "";
+            if (extr.Contains("()"))
+            {
+                for(int i = 0; i < extr.Count(); i++)
+                {
+                    if ((i+2)<extr.Count()&&extr.Substring(i, 2) == "()")
+                    {
+                        i += 1;
+                    }
+                    else
+                    {
+                        expresion = expresion + extr.Substring(i, 1);
+                    }
+                }
+                extr = expresion;
+            }
+            return extr;
         }
         public string[,] Eliminarestado(int origen, int eliminar, int destino, string[,] trancisiones, int numestados)
         {
@@ -274,34 +284,7 @@ namespace t3
 
                 }
             }
-            /*if (trancisiones[eliminar, numestados-1]!=null)
-            {              
-                for(int i=0;i< trancisiones[eliminar, numestados - 1].Count(); i++)
-                {
-                    if (i == 0)
-                    {   
-                        nuevatrancision[0, numestados-2] = nuevatrancision[0, 1] + ";(";
-                        nuevatrancision[0, numestados - 2] = nuevatrancision[0,1] +trancisiones[eliminar, numestados-1].Substring(i, 1);
-                        if(i == trancisiones[eliminar, eliminar].Count() - 1)
-                        {
-                            nuevatrancision[0, 1] = nuevatrancision[0, 1] + ")";
-                        }
-                    }
-                    else
-                    {
-                        if (i == trancisiones[eliminar, eliminar].Count() - 1)
-                        {
-                            nuevatrancision[0, numestados - 2] = nuevatrancision[0, 1] + trancisiones[eliminar, numestados-1].Substring(i, 1);
-                            nuevatrancision[0, numestados - 2] = nuevatrancision[0, 1] + ")";
-                        }
-                        else
-                        {
-                            nuevatrancision[0, numestados - 2] = nuevatrancision[0, 1] + trancisiones[eliminar, numestados-1].Substring(i, 1);
-                        }
-                    }
-                }
-
-            }*/
+            
             for (int i = 1; i < numestados-1; i++)
             {
                for(int  j = 1; j < numestados - 1; j++)

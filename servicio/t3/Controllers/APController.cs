@@ -26,11 +26,35 @@ namespace t3.Controllers
             ap.getEstadoInicial();
             return Ok(ap.getEstadoInicial());
         }
+        [HttpGet("union/{accion}/{id1}/{id2}")]
+        public IActionResult Get(int accion,int id1,int id2)
+        {
+            rpap repap= new rpap();
+            var ap1 = repap.obtenerap(id1);
+            var ap2 = repap.obtenerap(id2);
+            if (ap1 != null && ap2 != null)
+            {
+                if (accion == 0)
+                {//poner la unionaqui 
+                
+                }
+                else
+                {
+                    //poner la la concatenacion 
+                }
+
+
+            }
+            return Ok();
+        }
+
+
         [HttpPost("agregar")]
         public IActionResult Agregarafd(AP nuevoap)
         {
             rpap repap = new rpap();
             if (nuevoap.alfabt != null) { nuevoap.setalf(); }
+            if (nuevoap.finales != null) { nuevoap.setfin(); }
             repap.Agregar(nuevoap);
             
             return CreatedAtAction(nameof(Agregarafd), nuevoap.getId());

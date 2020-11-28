@@ -14,7 +14,6 @@ namespace t3
         public int totalTransiciones { get; set; }
         public List<string> alfabt { get; set; }
         public List<int> finales { get; set; }
-        public List<int> trancision { get; set; }
         public SortedSet<string> alfabeto { get; set; }
         public SortedSet<int> estadosFinales { get; set; }
         public SortedSet<int>[,] tablaTransiciones { get; set; }
@@ -31,6 +30,25 @@ namespace t3
             estadosFinales = estadosFinals;
             tablaTransiciones = tblaTransiciones;
         }
+        public string tabtostring(AP auto2) 
+        {
+            string strap2 = "";
+
+            for (int i = 0; i < auto2.getnumEstados(); i++)
+            {
+                for (int j = 0; j < auto2.gettotalTransiciones(); j++)
+                {
+                    strap2 = strap2 + "[";
+                    foreach (int tra in auto2.getTablaTransiciones()[i, j])
+                    {
+                        strap2 = strap2 + tra;
+                    }
+                    strap2 = strap2 + "]";
+                }
+                strap2 = strap2 + "\n";
+            }
+            return strap2;
+        }
         public void setalf()
         {
 
@@ -38,6 +56,13 @@ namespace t3
             for (int i = 0; i < con; i++)
             {
                 addLetraAlfabeto(alfabt[i]);
+            }
+        }
+        public void setfin()
+        { estadosFinales = new SortedSet<int>();
+            for(int i = 0; i < finales.Count(); i++)
+            {
+                estadosFinales.Add(finales[i]);
             }
         }
         public int getId()

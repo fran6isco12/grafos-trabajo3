@@ -1,15 +1,12 @@
 ﻿window.onload = function () {
 
     var id = 0;
-    var nestados = 4;
+    var nestados=0;
     var finales = new Array();
     var inicial = 0;
+    var tab = new Array();
+    
 
-
-    var tab = ["0,1", "1", "", "", "", "", "0,1", "", "", "", "", "0,1", "", "", "", ""];
-
-        finales.push(2);
-    finales.push(3);
     function getByIdRequest() {
 
         axios.get('http://localhost:52518/api/afd/' + "0")
@@ -41,7 +38,6 @@
 
         })
             .then(function (response) {
-                document.getElementById("saludo").innerHTML = response.data.mensaje;
                 console.log(response);
             })
             .catch(function (error) {
@@ -52,21 +48,59 @@
             .then(function () {
             });
     }
+    function agretan() {
+        if (document.getElementById("origen").value != null) {
+            if (document.getElementById("destino").value != null) {
+                if (document.getElementById("trancision").value != null) {
+                    tab[(4 * document.getElementById("origen").value) + document.getElementById("destino").value] = document.getElementById("trancision").value;
+                }
+                else {
+                    alert("transicion no valida");
+                }
 
+            }
+            else {
+                alert("destino no valido");
+            }
+        }
+        else {
+            alert("origen no valido");
+        }
+
+    }
     function addafd() {
         id = id + 1;
         nestados = document.getElementById("numes").value;
-        for (var i = 0; i < document.getElementById("numfn").value.length; i++);
-        if (document.getElementById("numfn").value[i] <= nestados) {
-            finales.push(document.getElementById("numfn").value[i]);
+        console.log(document.getElementById("numes").value);
+        console.log(nestados);
+        for (var i = 0; i < nestados; i++) {
+            tab.push("");
         }
-        else {
-            alert(document.getElementById("numfn").value[i] + "no es un nodo valido");
+        console.log(document.getElementById("numfn").value.length);
+        var al = document.getElementById("numfn").value;
+        console.log(al[i]);
+        for (var i = 0; i < document.getElementById("numfn").value.length; i++); {
+            console.log(document.getElementById("numfn").value[i]);
+            if (document.getElementById("numfn").value[i] != "," && nestados >= document.getElementById("numfn").value[i]) {
+                finales.push(document.getElementById("numfn").value[i]);
+
+            }
+            else {
+                if (document.getElementById("numfn").value[i] != ",") {
+                    alert(document.getElementById("numfn").value[i] + "no es un nodo valido");
+                }
+            }
         }
-        alert("estados agregados:" + JSON.tostringfy(finales));
+        console.log(finales);
+        alert("estados agregados:" + finales);
     }
-    document.getElementById("transicionbtn").onclick = getByIdRequest;
-    document.getElementById("erbtn").onclick = postRequest;
+    function er() {
+        postRequest;
+        getByIdRequest;
+    }
+    document.getElementById("").onclick = addafd;
+    document.getElementById("transicionbtn").onclick = agretan;
+    document.getElementById("erbtn").onclick = er;
 
 
 }
