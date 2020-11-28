@@ -186,7 +186,7 @@ namespace Automata_pila
             {
                 for (int j = 0; j < auto2.gettotalTransiciones(); j++)
                 {
-                    strap2 = strap1 + "[";
+                    strap2 = strap2 + "[";
                     foreach (int tra in auto2.getTablaTransiciones()[i, j])
                     {
                         strap2 = strap2 + tra;
