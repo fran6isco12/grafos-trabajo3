@@ -12,6 +12,9 @@ namespace t3
         public int numEstados { get; set; }
         public int estadoInicial { get; set; }
         public int totalTransiciones { get; set; }
+        public List<string> alfabt { get; set; }
+        public List<int> finales { get; set; }
+        public List<int> trancision { get; set; }
         public SortedSet<string> alfabeto { get; set; }
         public SortedSet<int> estadosFinales { get; set; }
         public SortedSet<int>[,] tablaTransiciones { get; set; }
@@ -28,7 +31,15 @@ namespace t3
             estadosFinales = estadosFinals;
             tablaTransiciones = tblaTransiciones;
         }
+        public void setalf()
+        {
 
+            int con = alfabt.Count();
+            for (int i = 0; i < con; i++)
+            {
+                addLetraAlfabeto(alfabt[i]);
+            }
+        }
         public int getId()
         {
             return Id;
