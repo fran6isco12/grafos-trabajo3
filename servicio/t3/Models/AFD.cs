@@ -82,7 +82,7 @@ namespace t3
             int numestados = automata.GetNumEstado();
 
             string[,] trancisiones= new string[numestados,numestados];
-            if (automata.GetTabTrans()[automata.GetInicial(), automata.GetInicial()] != "")
+            if (automata.GetInicial()<automata.GetNumEstado()&&automata.GetTabTrans()[automata.GetInicial(), automata.GetInicial()] != "")
             {
                iniciales = true;
             }
@@ -178,10 +178,11 @@ namespace t3
             else
             {
                 extr = expresion;
+                expresion = "";
             }
-            expresion = "";
             if (extr.Contains("()"))
             {
+                expresion = "";
                 for(int i = 0; i < extr.Count(); i++)
                 {
                     if ((i+2)<extr.Count()&&extr.Substring(i, 2) == "()")

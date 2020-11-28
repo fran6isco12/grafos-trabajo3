@@ -24,7 +24,11 @@ namespace t3.Controllers
                 return nf;
             }
             automata.tabtotran();
-            return Ok(automata.ERegular(automata));
+            if (automata.GetTabTrans() != null && automata.GetNumEstado()!=0) { return Ok(automata.ERegular(automata)); }
+            else
+            {
+                return BadRequest();
+            }
             //Console.WriteLine(resp);
             //return Ok(resp);
         }

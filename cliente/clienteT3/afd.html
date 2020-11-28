@@ -26,6 +26,51 @@
                 </div>
             </div>
 
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">AFND</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Esta accion eliminara las trancisiones.</p>
+                    <p>Para continuar presione aceptar.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmau">Aceptar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">AFND</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Esta accion eliminara todos los datos ya ingresados.</p>
+                    <p>Para continuar presione aceptar.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm3">Aceptar</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
@@ -40,7 +85,7 @@
                                 <label class="numes">Num. estados :</label>
                             </div>
                             <div class="col-xs-8">
-                                <input type="text" name="numes" id="numes" placeholder="ingrese el numero de estados" class="form-control ">
+                                <input type="number" name="numes" id="numes" placeholder="ingrese el numero de estados" class="form-control ">
                             </div>
                         </div>
                     </div>
@@ -50,23 +95,21 @@
                                 <label class="numes">Estados finales :</label>
                             </div>
                             <div class="col-xs-8">
-                                <input type="text" name="numes" id="numfn" placeholder="Ingrese los estados finales ej:0,1,2(0 a n-1)" class="form-control ">
+                                <input type="number" name="numes" id="numfn" placeholder="ingrese el EF(0 a n-1)" class="form-control ">
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-xs-8">
-                                <input class="btn btn-primary" type="button" id="agres" value="ingresar NumE">
+                                <input class="btn btn-primary" type="button" id="agres" value="ingresar NumE" data-toggle="modal" data-target="#myModal2">
                                 <input class="btn btn-primary" type="button" id="agrfin" value="Ingresar EF">
-                                
+
                             </div>
-                            <div class="row">
-                                <div class="col-xs-8">
-                                    <input class="btn btn-primary" type="button" id="agrau" value="Ingresar" data-toggle="modal" data-target="#myModal">
-                                </div>
-                            </div>
+
                         </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="divR">
@@ -110,7 +153,7 @@
                                     <input class="btn btn-primary" type="button" id="transicionbtn" value="Nueva transicion">
                                 </div>
                                 <div class="col-xs-8">
-                                    <input class="btn btn-primary" type="button" id="erbtn" value="Expresion R.">
+                                    <input class="btn btn-primary" type="button" id="erbtn" value="Expresion R."data-toggle="modal" data-target="#myModal3">
                                 </div>
                             </div>
                         </div>
