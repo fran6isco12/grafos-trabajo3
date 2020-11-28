@@ -35,7 +35,7 @@ namespace Automata_pila
                 Console.WriteLine();
             }
 
-            Console.Clear();
+            Console.WriteLine();
 
             Console.Write("ingrese el num total del alfabeto (AP 1): ");
             string tr = Console.ReadLine();
@@ -82,7 +82,7 @@ namespace Automata_pila
                 auto1.addTransicion(nei, transi, nef);
             }
 
-            Console.Clear();
+            Console.WriteLine();
 
             AP auto2 = new AP();
 
@@ -109,7 +109,7 @@ namespace Automata_pila
                 Console.WriteLine();
             }
 
-            Console.Clear();
+            Console.WriteLine();
 
             Console.Write("ingrese el num total del alfabeto (AP 2): ");
             string tr2 = Console.ReadLine();
@@ -156,7 +156,7 @@ namespace Automata_pila
                 auto2.addTransicion(nei2, transi2, nef2);
             }
 
-            Console.Clear();
+            Console.WriteLine();
 
             Console.WriteLine("AP 1");
 

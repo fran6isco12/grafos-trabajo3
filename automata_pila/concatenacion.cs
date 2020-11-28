@@ -13,7 +13,7 @@ namespace Automata_pila
         int totalTransiciones;
         SortedSet<string> alfabeto;
         SortedSet<int> estadosFinales;
-        SortedSet<int>[,] tabUnion;
+        SortedSet<int>[,] tabConca;
 
         public concatenacion()
         {
@@ -24,7 +24,7 @@ namespace Automata_pila
         public AP concatenar(AP ap1, AP ap2, int[] origen1, string[] lee1, int[] destino1, int[] origen2, string[] lee2, int[] destino2)
         {
 
-            AP apConca = new AP(numEstados, estadoInicial, totalTransiciones, alfabeto, estadosFinales, tabUnion);
+            AP apConca = new AP(numEstados, estadoInicial, totalTransiciones, alfabeto, estadosFinales, tabConca);
 
             apConca.setnumEstados(ap1.getnumEstados() + ap2.getnumEstados() + 2);
             apConca.setEstadoInicial(0);
@@ -84,13 +84,13 @@ namespace Automata_pila
                 apConca.addTransicion(nOrigen1,lee1[i],nDestino1);
             }
 
-            for (int i = 0; (i < ap2.gettotalTransiciones()); i++)
+            for (int j = 0; (j < ap2.gettotalTransiciones()); j++)
             {
                 int nOrigen2;
-                nOrigen2 = origen2[i] + 2 + ap1.getnumEstados();
+                nOrigen2 = origen2[j];
                 int nDestino2;
-                nDestino2 = destino2[i] + 2 + ap1.getnumEstados();
-                apConca.addTransicion(nOrigen2, lee2[i], nDestino2);
+                nDestino2 = destino2[j];
+                apConca.addTransicion(nOrigen2 + 2 + ap1.getnumEstados(), lee2[j], nDestino2 + 2 + ap1.getnumEstados());
             }
 
             return apConca;
