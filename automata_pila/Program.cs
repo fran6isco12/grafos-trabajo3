@@ -159,35 +159,43 @@ namespace Automata_pila
             Console.Clear();
 
             Console.WriteLine("AP 1");
+
+            string strap1="";
+
             for (int i=0;i<auto1.getnumEstados();i++ )
             {
                 for(int j=0;j<auto1.gettotalTransiciones();j++)
                 {
-                    Console.Write("[");
+                    strap1 = strap1+"[";
                     foreach (int tra in auto1.getTablaTransiciones()[i, j])
                     {
-                        Console.Write(tra);
+                        strap1 = strap1 + tra;
                     }
-                    Console.Write("]");
+                    strap1 = strap1 + "]";
                 }
-                Console.WriteLine();
+                strap1 = strap1 + "\n";
             }
+            Console.WriteLine(strap1);
             Console.ReadLine();
 
             Console.WriteLine("AP 2");
+
+            string strap2 = "";
+
             for (int i = 0; i < auto2.getnumEstados(); i++)
             {
                 for (int j = 0; j < auto2.gettotalTransiciones(); j++)
                 {
-                    Console.Write("[");
+                    strap1 = strap1 + "[";
                     foreach (int tra in auto2.getTablaTransiciones()[i, j])
                     {
-                        Console.Write(tra);
+                        strap2 = strap2 + tra;
                     }
-                    Console.Write("]");
+                    strap2 = strap2 + "]";
                 }
-                Console.WriteLine();
+                strap2 = strap2 + "\n";
             }
+            Console.WriteLine(strap2);
             Console.ReadLine();
 
             Console.WriteLine("La concatenacion es:");
@@ -201,20 +209,22 @@ namespace Automata_pila
 
             Console.WriteLine();
 
+            string strapconca = "";
+
             for (int i = 0; i < concatenacion.getnumEstados(); i++)
             {
                 for (int j = 0; j < concatenacion.gettotalTransiciones(); j++)
                 {
-                    Console.Write("[");
+                    strapconca = strapconca + "[";
                     foreach (int tra in concatenacion.getTablaTransiciones()[i, j])
                     {
-                        Console.Write(tra);
+                        strapconca = strapconca + tra;
                     }
-                    Console.Write("]");
+                    strapconca = strapconca + "]";
                 }
-                Console.WriteLine();
+                strapconca = strapconca + "\n";
             }
-
+            Console.WriteLine(strapconca);
             Console.ReadLine();
 
             Console.WriteLine("La union es:");
@@ -228,20 +238,22 @@ namespace Automata_pila
 
             Console.WriteLine();
 
+            string strapunion = "";
+
             for (int i = 0; i < union.getnumEstados(); i++)
             {
                 for (int j = 0; j < union.gettotalTransiciones(); j++)
                 {
-                    Console.Write("[");
+                    strapunion = strapunion + "[";
                     foreach (int tra in union.getTablaTransiciones()[i, j])
                     {
-                        Console.Write(tra);
+                        strapunion = strapunion + tra;
                     }
-                    Console.Write("]");
+                    strapunion = strapunion + "]";
                 }
-                Console.WriteLine();
+                strapunion = strapunion + "\n";
             }
-
+            Console.WriteLine(strapunion);
             Console.ReadLine();
         }
     }
