@@ -7,10 +7,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace t3.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class APController : ControllerBase
     {
+        string apconcat = "    | @/@/@ | @/@/Ind | @/Ind/@ | a/@/x | b/x/@ | c/@/x | d/x/@ | \n" +
+                          " 0  |   []  |  [1]    |   []    |   []  |   []  |  []   |   []  |  \n" +
+                          " 1  |   [2] |  []     |   []    |   [1] |   []  |  []   |   []  |  \n" +
+                          " 2  |   []  |  []     |   [3]   |   []  |   [2] |  []   |   []  |  \n" +
+                          " 3  |   [4] |  []     |   []    |   []  |   []  |  []   |   []  |  \n" +
+                          " 4  |   [5] |  []     |   []    |   []  |   []  |  [4]  |   []  |  \n" +
+                          " 5  |   []  |  []     |   []    |   []  |   []  |  []   |   [5] |   \n";
+
+        string apunion = "    | @/@/@ | a/@/x | b/x/@ | c/@/x | d/x/@ | \n" +
+                         " 0  | [1,3] |   []  |   []  |  []   |   []  |  \n" +
+                         " 1  | [2]   |   [1] |   []  |  []   |   []  |  \n" +
+                         " 2  | []    |   []  |   [2] |  []   |   []  |  \n" +
+                         " 3  | [4]   |   []  |   []  |  [3]  |   []  |  \n" +
+                         " 4  | []    |   []  |   []  |  []   |   [4] |  \n";
+
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -23,8 +39,7 @@ namespace t3.Controllers
                 var nf = NotFound("El AP " + id.ToString() + " no existe.");
                 return nf;
             }
-            ap.getEstadoInicial();
-            return Ok(ap.getEstadoInicial());
+            return Ok();
         }
         [HttpGet("union/{accion}/{id1}/{id2}")]
         public IActionResult Get(int accion,int id1,int id2)
@@ -36,7 +51,6 @@ namespace t3.Controllers
             {
                 if (accion == 0)
                 {//poner la unionaqui 
-                
                 }
                 else
                 {
