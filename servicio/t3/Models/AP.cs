@@ -14,9 +14,9 @@ namespace t3
         public int totalTransiciones { get; set; }
         public List<string> alfabt { get; set; }
         public List<int> finales { get; set; }
-        public SortedSet<string> alfabeto { get; set; }
-        public SortedSet<int> estadosFinales { get; set; }
-        public SortedSet<int>[,] tablaTransiciones { get; set; }
+        public SortedSet<string> alfabeto = new SortedSet<string>();
+        public SortedSet<int> estadosFinales;
+        public SortedSet<int>[,] tablaTransiciones = new SortedSet<int>[1, 1];
 
         public AP() { }
 

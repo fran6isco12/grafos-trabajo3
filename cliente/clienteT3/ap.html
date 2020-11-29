@@ -8,7 +8,7 @@
     <div class="topnav">
         <a class="active" href="home.html">INICIO</a>
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal1" role="dialog">
         <div class="modal-dialog">
 
             <div class="modal-content">
@@ -17,95 +17,81 @@
                     <h4 class="modal-title">AFND</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Esta accion eliminara todos los datos ya ingresados.</p>
+                    <p>ya se ingresaron dos automatas para continuar elimine uno</p>
                     <p>Para continuar presione aceptar.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm">Aceptar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm1">eliminar 1</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm2">eliminar 2</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm3">cancelar</button>
                 </div>
             </div>
-
-
         </div>
     </div>
 
-    <div class="modal fade" id="myModal2" role="dialog">
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">AFND</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Esta accion eliminara las trancisiones.</p>
-                    <p>Para continuar presione aceptar.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmau">Aceptar</button>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
-
-    <div class="modal fade" id="myModal3" role="dialog">
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">AFND</h4>
-                </div>
-                <div class="modal-body">
-                    <p>automata ingresado expresion regular en proceso.</p>
-                    <p>Para continuar presione aceptar.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirm3">Aceptar</button>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
 
     <div class="container">
         <div class="divL">
             <div class="container" id="container1">
                 <div class="row">
-                    <div><header class="heading"> AFND</header></div>
+                    <div><header class="heading"> AP</header></div>
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-xs-4">
                                 <label class="numes">Num. estados :</label>
                             </div>
                             <div class="col-xs-8">
-                                <input type="number" name="numes" id="numes" placeholder="ingrese el numero de estados" class="form-control ">
+                                <input type="number" name="numes" id="numes" placeholder="ingrese el numero de estados" class="form-controlar">
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-xs-4">
-                                <label class="numes">Estados finales :</label>
+                                <label class="numes">Num. trans.:</label>
                             </div>
                             <div class="col-xs-8">
-                                <input type="number" name="numes" id="numfn" placeholder="ingrese el EF(0 a n-1)" class="form-control ">
+                                <input type="number" name="numes" id="numts" placeholder="ingrese Nº de trans." class="form-controlar">
+
+                            </div>
+                            <div class="col-xs-4">
+
+                                <input class="btn btn-primary" type="button" id="ingrdat" value="ingresar datos">
+
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="row">
+                            <input type="number" name="numes" id="apnum" placeholder="AP objetivo(ej:1)" class="form-controlar">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label class="numes">Estado Final :</label>
+                            </div>
                             <div class="col-xs-8">
-                                <input class="btn btn-primary" type="button" id="agres" value="ingresar NumE" data-toggle="modal" data-target="#myModal2">
-                                <input class="btn btn-primary" type="button" id="agrfin" value="Ingresar EF">
+                                <input type="number" name="numes" id="numfn" placeholder="ingrese el EF(0 a n-1)" class="form-controlar">
+                            </div>
+                            <div class="col-xs-4">
+                                <label class="numes">Alfabeto:</label>
+                            </div>
+                            <div class="col-xs-8">
+                                <input type="text" name="numes" id="alfb" placeholder="agregar alfabeto (ej:E/E/E/a)" class="form-controlar">
+                            </div>
+                            <div class="col-xs-16">
+
+                                <input class="btn btn-primary" type="button" id="agref" value="agregar EF">
+                                <input class="btn btn-primary" type="button" id="agralf" value="agregar Alf">
+                                <input class="btn btn-primary" type="button" id="agraap1" value="guardar AP1">
+                                <input class="btn btn-primary" type="button" id="agraap2" value="guardar AP2">
 
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -118,11 +104,17 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="row">
+                                <input type="number" name="numes" id="apnum2" placeholder="AP objetivo(ej:1)" class="form-controlar">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row">
                                 <div class="col-xs-4">
                                     <label class="numes">Nodo origen: :</label>
                                 </div>
                                 <div class="col-xs-8">
-                                    <input type="text" name="numes" id="origen" placeholder="Nodo origen(0 a n-1)" class="form-controlar">
+                                    <input type="number" name="numes" id="origen" placeholder="Nodo origen(0 a n-1)" class="form-controlar">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +124,7 @@
                                     <label class="numes">Nodo destino :</label>
                                 </div>
                                 <div class="col-xs-8">
-                                    <input type="text" name="numes" id="destino" placeholder="Nodo destino(0 a n-1)" class="form-controlar">
+                                    <input type="number" name="numes" id="destino" placeholder="Nodo destino(0 a n-1)" class="form-controlar">
                                 </div>
                             </div>
                         </div>
@@ -148,20 +140,12 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <input class="btn btn-primary" type="button" id="transicionbtn" value="Nueva transicion">
-                                </div>
-                                <div class="col-xs-8">
-                                    <input class="btn btn-primary" type="button" id="erbtn" value="Expresion R."data-toggle="modal" data-target="#myModal3">
+                                    <input class="btn btn-primary" type="button" id="union" value="union">
+                                    <input class="btn btn-primary" type="button" id="concatenacion" value="Concatenacion">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12">
-
-                            <div class="panel panel-default">
-                                <div class="panel-body" id="panel">Expresion Regular</div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -177,5 +161,5 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <link href="public/head.css" rel="stylesheet" />
 <link href="public/afd.css" rel="stylesheet" />
-<script src="public/afd.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="public/ap.js"></script>

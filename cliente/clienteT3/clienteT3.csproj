@@ -66,9 +66,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ap.html" />
     <Content Include="home.html" />
     <Content Include="afd.html" />
     <Content Include="public\afd.js" />
+    <Content Include="public\ap.js" />
     <Content Include="public\head.css" />
     <Content Include="public\images\background.gif" />
     <Content Include="public\home.js" />

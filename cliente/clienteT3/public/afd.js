@@ -1,5 +1,4 @@
 ﻿window.onload = function () {
-    var numbers = /^[0-9]+$/;
     var id = 0;
     var nestados=0;
     var finales = new Array();
@@ -10,7 +9,7 @@
         axios.get('http://localhost:52518/api/afd/' + id)
             .then(function (response) {
                 document.getElementById("panel").innerHTML = response.data;
-                console.log("ejecutado:"+id)
+                console.log("ejecutado:" + id);
                 console.log(response);
             })
             .catch(function (error) {

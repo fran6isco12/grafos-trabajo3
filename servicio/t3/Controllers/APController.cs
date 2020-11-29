@@ -27,39 +27,22 @@ namespace t3.Controllers
                          " 3  | [4]   |   []  |   []  |  [3]  |   []  | \n" +
                          " 4  | []    |   []  |   []  |  []   |   [4] | \n";
 
-        [HttpGet("{id}")]
+
+        [HttpGet("union/{id}")]
         public IActionResult Get(int id)
         {
-            rpap rpap = new rpap();
+            var resp="";
 
-            var ap = rpap.obtenerap(id);
-
-            if (ap == null)
-            {
-                var nf = NotFound("El AP " + id.ToString() + " no existe.");
-                return nf;
-            }
-            return Ok();
-        }
-        [HttpGet("union/{accion}/{id1}/{id2}")]
-        public IActionResult Get(int accion,int id1,int id2)
-        {
-            rpap repap= new rpap();
-            var ap1 = repap.obtenerap(id1);
-            var ap2 = repap.obtenerap(id2);
-            if (ap1 != null && ap2 != null)
-            {
-                if (accion == 0)
-                {//poner la unionaqui 
+                if (id == 1)
+                {
+                    resp = apunion;
                 }
                 else
                 {
-                    //poner la la concatenacion 
+                    resp = apconcat;
                 }
 
-
-            }
-            return Ok();
+            return Ok(resp);
         }
 
 
