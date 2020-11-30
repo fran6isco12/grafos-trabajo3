@@ -17,7 +17,7 @@ namespace t3
         public SortedSet<string> alfabeto = new SortedSet<string>();
         public SortedSet<int> estadosFinales;
         public SortedSet<int>[,] tablaTransiciones = new SortedSet<int>[1, 1];
-        private object log;
+
 
         public AP() { }
 
@@ -48,7 +48,7 @@ namespace t3
                 }
                 strap2 = strap2 + "\n";
             }
-            AP.Log("Se obtuvo la tabla de transiciones como string", File.AppendText("log.txt"));
+            AP.Log("Se obtuvo la tabla de transiciones como string", File.AppendText("logap.txt"));
             return strap2;
         }
         public void setalf()
@@ -59,7 +59,7 @@ namespace t3
             {
                 addLetraAlfabeto(alfabt[i]);
             }
-            AP.Log("Se seteo el alfabeto", File.AppendText("log.txt"));
+            AP.Log("Se seteo el alfabeto", File.AppendText("logap.txt"));
         }
         public void setfin()
         { estadosFinales = new SortedSet<int>();
@@ -67,7 +67,7 @@ namespace t3
             {
                 estadosFinales.Add(finales[i]);
             }
-            AP.Log("Se seteo el/los estado(s) final(es)", File.AppendText("log.txt"));
+            AP.Log("Se seteo el/los estado(s) final(es)", File.AppendText("logap.txt"));
         }
         public int getId()
         {
@@ -82,7 +82,7 @@ namespace t3
         public void setnumEstados(int nEstados)
         {
             this.numEstados = nEstados;
-            AP.Log("Se definio el numero de estados", File.AppendText("log.txt"));
+            AP.Log("Se definio el numero de estados", File.AppendText("logap.txt"));
         }
 
         public int getEstadoInicial()
@@ -93,7 +93,7 @@ namespace t3
         public void setEstadoInicial(int q0)
         {
             this.estadoInicial = q0;
-            AP.Log("Se definio el estado inicial", File.AppendText("log.txt"));
+            AP.Log("Se definio el estado inicial", File.AppendText("logap.txt"));
         }
 
         public int gettotalTransiciones()
@@ -104,7 +104,7 @@ namespace t3
         public void settotalTransiciones(int nTransiciones)
         {
             this.totalTransiciones = nTransiciones;
-            AP.Log("Se definio el total de transiciones", File.AppendText("log.txt"));
+            AP.Log("Se definio el total de transiciones", File.AppendText("logap.txt"));
         }
 
         public SortedSet<string> getAlfabeto()
@@ -129,7 +129,7 @@ namespace t3
 
         public SortedSet<int>[,] getTablaTransiciones()
         {
-            AP.Log("Se obtine la tabla de transiciones", File.AppendText("log.txt"));
+            AP.Log("Se obtine la tabla de transiciones", File.AppendText("logap.txt"));
             return tablaTransiciones;
         }
 
@@ -141,7 +141,7 @@ namespace t3
         public void addEstadoFinal(int q)
         {
             estadosFinales.Add(q);
-            AP.Log("Se añadio un estado final", File.AppendText("log.txt"));
+            AP.Log("Se añadio un estado final", File.AppendText("logap.txt"));
         }
 
         public void addLetraAlfabeto(string letra)
@@ -149,7 +149,7 @@ namespace t3
             alfabeto.Add(letra);
             tablaTransiciones = new SortedSet<int>[numEstados, totalTransiciones];
             iniciarTablaTransiciones();
-            AP.Log("Se añadio una letra al alfabeto", File.AppendText("log.txt"));
+            AP.Log("Se añadio una letra al alfabeto", File.AppendText("logap.txt"));
         }
 
         private void iniciarTablaTransiciones()
@@ -176,7 +176,7 @@ namespace t3
                     dif++;
             }
             tablaTransiciones[q0, cont].Add(q1);
-            AP.Log("Se añadio una transicion", File.AppendText("log.txt"));
+            AP.Log("Se añadio una transicion", File.AppendText("logap.txt"));
         }
 
         public static void Log(string logMessage, TextWriter w)

@@ -180,7 +180,7 @@
     function postRequest() {
         axios({
             method: "post",
-            url: "http://localhost:52518/api/ap/agregar",
+            url: "http://localhost:4141/api/ap/agregar",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -210,7 +210,7 @@
     function postRequest2() {
         axios({
             method: "post",
-            url: "http://localhost:52518/api/ap/agregar",
+            url: "http://localhost:4141/api/ap/agregar",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -240,7 +240,7 @@
     function postRequest3() {
         axios({
             method: "post",
-            url: "http://localhost:52518/api/ap/agregartr",
+            url: "http://localhost:4141/api/ap/agregartr",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -317,7 +317,7 @@
         }
     }
     function getByIdRequest() {
-        axios.get('http://localhost:52518/api/ap/union/' + accion)
+        axios.get('http://localhost:4141/api/ap/union/' + accion)
             .then(function (response) {
                 if (accion == 1) { alert("la union es: \n" + response.data); }
                 if (accion == 2) { alert("la conacatenacion es: \n" + response.data); }

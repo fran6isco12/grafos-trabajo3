@@ -13,7 +13,7 @@ namespace t3
         int totalTransiciones;
         SortedSet<string> alfabeto;
         SortedSet<int> estadosFinales;
-        SortedSet<int>[,] tabUnion;
+        SortedSet<int>[,] tabUnion=new SortedSet<int>[1,1];
 
         public union()
         {

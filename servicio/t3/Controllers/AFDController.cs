@@ -29,8 +29,7 @@ namespace t3.Controllers
             {
                 return BadRequest();
             }
-            //Console.WriteLine(resp);
-            //return Ok(resp);
+
         }
         [HttpPost("agregar")]
         public IActionResult Agregarafd(AFD nuevoafd)
