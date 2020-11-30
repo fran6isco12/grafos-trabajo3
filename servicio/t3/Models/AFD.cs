@@ -17,7 +17,8 @@ namespace t3
         public AFD() { }
         public AFD(int id, int estados, int inicial, List<int> finales, List<string> tabla)
         {
-            Id = id;
+            Console.WriteLine("definiendo automata");
+               Id = id;
             NEstados = estados;
             EInicial = inicial;
             EFinales = finales;
@@ -27,7 +28,8 @@ namespace t3
 
         public string[,] tabtotran()
         {
-            int con = 0;
+            Console.WriteLine("llenando tabla");
+               int con = 0;
             string[,] Trancision = new string[NEstados, NEstados];
             for(int i = 0; i < NEstados; i++)
             {
@@ -46,38 +48,37 @@ namespace t3
 
         public int Getid()
         {
-            
-            return Id;
+            Console.WriteLine("retorna id"); return Id;
 
         }
 
         public int GetNumEstado()
         {
-            
+            Console.WriteLine("retorna nume");
             return NEstados;
         }
 
         public List<int> GetEsFinales()
         {
-            
+            Console.WriteLine("retorna finales");
             return EFinales;
         }
 
         public int GetInicial()
         {
-            
+            Console.WriteLine("retorna inicial");
             return EInicial;
         }
 
         public string[,] GetTabTrans()
         {
-            
+            Console.WriteLine("retorna tabla");
             return tabtotran();
         }
 
         public string ERegular(AFD automata)
         {
-            
+            Console.WriteLine("inicio calculo er");
             string expresion="";
             Boolean iniciales=false;
 
@@ -90,13 +91,13 @@ namespace t3
             int numestados = automata.GetNumEstado();
 
             string[,] trancisiones= new string[numestados,numestados];
-            
+            Console.WriteLine("comprobando iniciales");
             if (automata.GetInicial()<automata.GetNumEstado()&&automata.GetTabTrans()[automata.GetInicial(), automata.GetInicial()] != "")
             {
                 
                 iniciales = true;
             }
-            
+            Console.WriteLine("comprobando finales");
             for (int i = 0; i < automata.GetEsFinales().Count(); i++)
             {
                 for (int j = 0; j < automata.GetNumEstado(); j++)
@@ -108,7 +109,7 @@ namespace t3
                     }
                 }
             }
-           
+            Console.WriteLine("agregando nuevas trancisiones");
             if (iniciales != false)
             {
 
@@ -161,13 +162,13 @@ namespace t3
                     trancisiones = automata.GetTabTrans();
                 }
             }
-           
+            
             for (int i = numestados; i > 2; i--)
             {
-                
+                Console.WriteLine("eliminando estados");
                 trancisiones = Eliminarestado(0, 1, 2, trancisiones, i);                    
             }
-           
+            Console.WriteLine("dando formato");
             string extr="";
             expresion = trancisiones[0, 1];
             if (expresion.Contains(";"))
@@ -212,7 +213,7 @@ namespace t3
                 }
                 extr = expresion;
             }
-            
+            Console.WriteLine("retorna er");
             return extr;
         }
         public string[,] Eliminarestado(int origen, int eliminar, int destino, string[,] trancisiones, int numestados)
@@ -220,7 +221,7 @@ namespace t3
             string[,] nuevatrancision= new string[numestados - 1, numestados - 1];
 
             nuevatrancision[0, 1] = trancisiones[0, 1];
-
+            Console.WriteLine("eliminando tr e-e");
             if (trancisiones[eliminar, eliminar]!=null)
             {
                 
@@ -258,6 +259,7 @@ namespace t3
 
                 }
             }
+            Console.WriteLine("eliminando tr e-d");
             if (trancisiones[eliminar, destino]!= null)
             {
                 
@@ -304,7 +306,7 @@ namespace t3
 
                 }
             }
-            
+            Console.WriteLine("eliminando tr e-f");
             for (int i = 1; i < numestados-1; i++)
             {
                for(int  j = 1; j < numestados - 1; j++)
@@ -323,17 +325,8 @@ namespace t3
             {
                 nuevatrancision[0, 1] = nuevatrancision[0, 1] + trancisiones[0, numestados - 1];
             }
-           
+            Console.WriteLine("retorna nueva tabla");
             return nuevatrancision;
-        }
-        public static void Log(string logMessage, TextWriter w)
-        {
-            w.Write("\r\nLog Entry : ");
-            w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
-            w.WriteLine("  :");
-            w.WriteLine($"  :{logMessage}");
-            w.WriteLine("-------------------------------");
-            w.Close();
         }
     }
 

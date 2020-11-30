@@ -26,10 +26,10 @@ namespace t3
             AP apUnion = new AP(numEstados, estadoInicial, totalTransiciones, alfabeto, estadosFinales, tabUnion);
 
             apUnion.setnumEstados(ap1.getnumEstados() + ap2.getnumEstados() + 1);
-            AP.Log("Se definio el numero total de estados", File.AppendText("log.txt"));
+            Console.WriteLine("Se definio el numero total de estados");
 
             apUnion.setEstadoInicial(0);
-            AP.Log("Se seteo el estado inicial", File.AppendText("log.txt"));
+            Console.WriteLine("Se seteo el estado inicial");
 
             SortedSet<string> alfUnion = new SortedSet<string>();
             foreach (string letra1 in ap1.getAlfabeto())
@@ -46,7 +46,7 @@ namespace t3
                 cont++;
             }
             apUnion.settotalTransiciones(1 + cont);
-            AP.Log("Se definion el total de transiciones", File.AppendText("log.txt"));
+            Console.WriteLine("Se definion el total de transiciones");
 
             foreach (string alf1 in ap1.getAlfabeto())
             {
@@ -57,7 +57,7 @@ namespace t3
                 apUnion.addLetraAlfabeto(alf2);
             }
             apUnion.addLetraAlfabeto("@/@/@");
-            AP.Log("Se definio el nuevo alfabeto para la union", File.AppendText("log.txt"));
+            Console.WriteLine("Se definio el nuevo alfabeto para la union");
 
             foreach (int eFinal in ap1.getestadoFinal())
             {
@@ -67,11 +67,11 @@ namespace t3
             {
                 apUnion.addEstadoFinal(eFinal + 1 + ap1.getnumEstados());
             }
-            AP.Log("Se definio los nuevos estados finales para apUnion", File.AppendText("log.txt"));
+            Console.WriteLine("Se definio los nuevos estados finales para apUnion");
 
             apUnion.addTransicion(0, "@/@/@", (ap1.getEstadoInicial() + 1));
             apUnion.addTransicion(0, "@/@/@", (ap2.getEstadoInicial() + 1 + ap1.getnumEstados()));
-            AP.Log("Se definieron las transiciones necesarias para unir ap1 y ap2", File.AppendText("log.txt"));
+            Console.WriteLine("Se definieron las transiciones necesarias para unir ap1 y ap2");
 
             for (int i = 0; (i < ap1.gettotalTransiciones()); i++)
             {
@@ -81,7 +81,7 @@ namespace t3
                 nDestino1 = destino1[i] + 1;
                 apUnion.addTransicion(nOrigen1, lee1[i], nDestino1);
             }
-            AP.Log("Se añadieron todas las transiciones de ap2 a apUnion", File.AppendText("log.txt"));
+            Console.WriteLine("Se añadieron todas las transiciones de ap2 a apUnion");
 
             for (int i = 0; (i < ap2.gettotalTransiciones()); i++)
             {
@@ -91,20 +91,13 @@ namespace t3
                 nDestino2 = destino2[i] + 1 + ap1.getnumEstados();
                 apUnion.addTransicion(nOrigen2, lee2[i], nDestino2);
             }
-            AP.Log("Se añadieron todas las transiciones de ap2 a apUnion", File.AppendText("log.txt"));
+            Console.WriteLine("Se añadieron todas las transiciones de ap2 a apUnion");
 
-            AP.Log("se a unido el ap1 con el ap2", File.AppendText("log.txt"));
+            Console.WriteLine("se a unido el ap1 con el ap2");
             return apUnion;
         }
 
-        public static void Log(string logMessage, TextWriter w)
-        {
-            w.Write("\r\nLog Entry : ");
-            w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
-            w.WriteLine("  :");
-            w.WriteLine($"  :{logMessage}");
-            w.WriteLine("-------------------------------");
-        }
+
 
     }
 }
