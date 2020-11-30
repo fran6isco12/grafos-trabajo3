@@ -66,9 +66,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ap.html" />
-    <Content Include="home.html" />
-    <Content Include="afd.html" />
+    <Content Include="afd.aspx" />
+    <Content Include="ap.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="public\afd.js" />
     <Content Include="public\ap.js" />
     <Content Include="public\head.css" />
@@ -78,6 +78,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="afd.aspx.cs">
+      <DependentUpon>afd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="afd.aspx.designer.cs">
+      <DependentUpon>afd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ap.aspx.cs">
+      <DependentUpon>ap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ap.aspx.designer.cs">
+      <DependentUpon>ap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

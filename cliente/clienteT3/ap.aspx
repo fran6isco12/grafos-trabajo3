@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ap.aspx.cs" Inherits="serviciot3.ap" %>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,7 +8,7 @@
 </head>
 <body runat="server">
     <div class="topnav">
-        <a class="active" href="home.html">INICIO</a>
+        <a class="active" href="index.aspx">INICIO</a>
     </div>
     <div class="modal fade" id="myModal1" role="dialog">
         <div class="modal-dialog">

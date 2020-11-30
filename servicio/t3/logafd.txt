@@ -1,0 +1,180 @@
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :comprobando estado inicial
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :comprobando estados finales
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :agregando trancisiones
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :procesado de er
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :inicio de la eliminacion de estados
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancisiones de n. a eliminar sobre si mismo
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancision de n a eliminar que apuntan n destino
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :retornando nueva tabla
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :inicio de la eliminacion de estados
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancisiones de n. a eliminar sobre si mismo
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancision de n a eliminar que apuntan n destino
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :retornando nueva tabla
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :inicio de la eliminacion de estados
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancisiones de n. a eliminar sobre si mismo
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancision de n a eliminar que apuntan n destino
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancision de n a eliminar que apuntan hacia el nodo final
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :retornando nueva tabla
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :inicio de la eliminacion de estados
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancisiones de n. a eliminar sobre si mismo
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :eliminando trancision de n a eliminar que apuntan n destino
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :retornando nueva tabla
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :limpiezxa y estandarizado de la er
+-------------------------------
+
+Log Entry : 18:42:51 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:((0+1)*(1))(0+1))(0+1)))+(((0+1)*(1))(0+1))))
+-------------------------------
+
+Log Entry : 18:52:26 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 18:52:26 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:
+-------------------------------
+
+Log Entry : 18:53:01 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 18:53:01 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:
+-------------------------------
+
+Log Entry : 18:53:57 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 18:53:57 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:(E(1(0+1))
+-------------------------------
+
+Log Entry : 18:54:02 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 18:54:02 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:(E(1(0+1))
+-------------------------------
+
+Log Entry : 19:04:47 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 19:04:47 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:2)
+-------------------------------
+
+Log Entry : 19:15:35 lunes, 30 de noviembre de 2020
+  :
+  :iniciando expresion regular
+-------------------------------
+
+Log Entry : 19:15:35 lunes, 30 de noviembre de 2020
+  :
+  :retornando er:
+-------------------------------

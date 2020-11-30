@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="serviciot3.index" %>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,7 +8,7 @@
 </head>
 <body runat="server">
     <div class="topnav">
-        <a class="active" href="home.html">INICIO</a>
+        <a class="active" href="index.aspx">INICIO</a>
     </div>
  
     <div>

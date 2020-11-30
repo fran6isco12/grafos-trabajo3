@@ -6,7 +6,7 @@
     var tab = new Array();
 
     function getByIdRequest() {
-        axios.get('http://localhost:4141/api/afd/' + id)
+        axios.get('http://localhost:52518/api/afd/' + id)
             .then(function (response) {
                 document.getElementById("panel").innerHTML = response.data;
                 console.log("ejecutado:" + id);
@@ -22,7 +22,7 @@
     function postRequest() {
         axios({
             method: "post",
-            url: "http://localhost:4141/api/afd/agregar",
+            url: "http://localhost:52518/api/afd/agregar",
             headers: {
                 "Content-Type": "application/json"
             },
