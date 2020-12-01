@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="afd.aspx.cs" Inherits="serviciot3.afd" %>
+﻿<%@Page%>
 
 <!DOCTYPE html>
 <html>

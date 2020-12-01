@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="serviciot3.index" %>
+﻿<%@Page%>
 
 <!DOCTYPE html>
 <html>

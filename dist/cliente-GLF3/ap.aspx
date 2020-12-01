@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ap.aspx.cs" Inherits="serviciot3.ap" %>
+﻿<%@Page%>
 
 <!DOCTYPE html>
 <html>
