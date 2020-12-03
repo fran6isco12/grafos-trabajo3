@@ -166,7 +166,7 @@ namespace t3
             for (int i = numestados; i > 2; i--)
             {
                 Console.WriteLine("eliminando estados");
-                trancisiones = Eliminarestado(0, 1, 2, trancisiones, i);                    
+                trancisiones = Eliminarestado(1, 2, trancisiones, i);                    
             }
             Console.WriteLine("dando formato");
             string extr="";
@@ -216,7 +216,7 @@ namespace t3
             Console.WriteLine("retorna er");
             return extr;
         }
-        public string[,] Eliminarestado(int origen, int eliminar, int destino, string[,] trancisiones, int numestados)
+        private string[,] Eliminarestado( int eliminar, int destino, string[,] trancisiones, int numestados)
         {
             string[,] nuevatrancision= new string[numestados - 1, numestados - 1];
 

@@ -134,10 +134,6 @@ namespace t3
             return tablaTransiciones;
         }
 
-        public void setTablaTransiciones(SortedSet<int>[,] tblaTransiciones)
-        {
-            tablaTransiciones = tblaTransiciones;
-        }
 
         public void addEstadoFinal(int q)
         {
